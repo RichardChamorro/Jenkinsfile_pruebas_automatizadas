@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Git') {
       steps {
-        git branch: 'main', url: 'https://github.com/RichardChamorro/Jenkinsfile_pruebas_automatizadas.gi t'
+        git branch: 'main', url: 'https://github.com/RichardChamorro/Jenkinsfile_pruebas_automatizadas.git'
       }
     }
     stage('Build') {
