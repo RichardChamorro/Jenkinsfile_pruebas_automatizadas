@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    gradle "gr7"
+    gradle "7.0"
   }
   environment {
     TESTPLAN = "${params.TESTPLAN}"
@@ -15,12 +15,7 @@ pipeline {
     }
     stage('Git') {
       steps {
-        git branch: 'main', url: 'https://github.com/arpkk/FrameworkAutomatizacion.git'
-      }
-    }
-    stage('Xvfb') {
-      steps {
-        sh 'Xvfb :99 -ac -screen 0 1280x1024x24 & export DISPLAY=$DISPLAY'
+        git branch: 'main', url: 'https://github.com/RichardChamorro/Jenkinsfile_pruebas_automatizadas.git'
       }
     }
     stage('Build') {
@@ -34,12 +29,6 @@ pipeline {
         {
             sh 'gradle runWithCucumber -P tags="@$TAG"'
         }
-      }
-    }
-    stage('Jira') {
-      steps {
-        sh "chmod +x -R ${env.WORKSPACE}"
-        sh "IR=$TESTPLAN ./Attachment.sh IR"
       }
     }
     stage('Xray') {
