@@ -27,7 +27,7 @@ pipeline {
         sh "pwd"
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
         {
-            sh 'gradle runWithCucumber -P tags="@$TAG"'
+            sh 'gradle runWithCucumber -P tags="@$TEST_PX-1006"'
         }
       }
     }
