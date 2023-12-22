@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    gradle "7"
+    gradle "gr7"
   }
   environment {
     TESTPLAN = "${params.TESTPLAN}"
